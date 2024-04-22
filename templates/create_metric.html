@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Metric</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Add New Metric</h2>
+    <form method="POST" action="{{ url_for('metrics.create_metric') }}">
+        <div class="form-group">
+            <label for="metric_item_label">Metric Item Label:</label>
+            <input type="text" class="form-control" id="metric_item_label" name="metric_item_label" required>
+        </div>
+        <div class="form-group">
+            <label for="metric_cat_label">Category Label:</label>
+            <input type="text" class="form-control" id="metric_cat_label" name="metric_cat_label" required>
+        </div>
+        <div class="form-group">
+            <label for="metric_subcat_label">Subcategory Label:</label>
+            <input type="text" class="form-control" id="metric_subcat_label" name="metric_subcat_label" required>
+        </div>
+        <div class="form-group">
+            <label for="metric_item_label_subtitle">Item Label Subtitle:</label>
+            <input type="text" class="form-control" id="metric_item_label_subtitle" name="metric_item_label_subtitle"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="metric_cat_item_yaxis_label">Y-axis Label:</label>
+            <input type="text" class="form-control" id="metric_cat_item_yaxis_label" name="metric_cat_item_yaxis_label"
+                   required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

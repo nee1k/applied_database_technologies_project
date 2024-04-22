@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Geographic Location</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Add New Geographic Location</h2>
+    <form method="POST" action="{{ url_for('geographiclocations.create_geographiclocation') }}">
+        <div class="form-group">
+            <label for="geo_label_city">City:</label>
+            <input type="text" class="form-control" id="geo_label_city" name="geo_label_city" required>
+        </div>
+        <div class="form-group">
+            <label for="geo_label_state">State:</label>
+            <input type="text" class="form-control" id="geo_label_state" name="geo_label_state" required>
+        </div>
+        <div class="form-group">
+            <label for="geo_label_citystate">City-State:</label>
+            <input type="text" class="form-control" id="geo_label_citystate" name="geo_label_citystate" required>
+        </div>
+        <div class="form-group">
+            <label for="geo_fips_code">FIPS Code:</label>
+            <input type="number" class="form-control" id="geo_fips_code" name="geo_fips_code" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

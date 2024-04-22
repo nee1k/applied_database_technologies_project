@@ -1,9 +1,7 @@
-import click
 import mysql.connector
-import os
 
-from flask import current_app, g
-from flask.cli import with_appcontext
+from flask import g
+
 
 def get_db():
     if "db" not in g or not g.db.is_connected():
@@ -17,15 +15,17 @@ def get_db():
             # ssl_verify_identity=True,
             # ssl_ca="C:\ssl\certs\cacert.pem"
         )
-        
+
     return g.db
+
 
 def close_db(e=None):
     db = g.pop("db", None)
 
     if db is not None:
-        # close the database 
+        # close the database
         db.close()
+
 
 def init_app(app):
     app.teardown_appcontext(close_db)

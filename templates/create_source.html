@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Source</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Add New Source</h2>
+    <form method="POST" action="{{ url_for('sources.create_source') }}">
+        <div class="form-group">
+            <label for="metric_source_desc_label_fn">Source Description:</label>
+            <input type="text" class="form-control" id="metric_source_desc_label_fn" name="metric_source_desc_label_fn"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="metric_source_desc_label_url_fn">Source URL:</label>
+            <input type="url" class="form-control" id="metric_source_desc_label_url_fn"
+                   name="metric_source_desc_label_url_fn" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -10,7 +10,7 @@
 <div class="container mt-3">
     <h2>Demographics Dashboard</h2>
     <div>
-        <a href="{{ url_for('create_demographic') }}" class="btn btn-primary">Add New Demographic</a>
+        <a href="{{ url_for('demographic.create_demographic') }}" class="btn btn-primary">Add New Demographic</a>
     </div>
     <table class="table table-striped mt-3">
         <thead>
@@ -30,7 +30,7 @@
                 <td>{{ demographic.strata_sex_label }}</td>
                 <td>{{ demographic.strata_race_sex_label }}</td>
                 <td>
-                    <a href="{{ url_for('delete_demographic', demographic_id=demographic.demographic_id) }}"
+                    <a href="{{ url_for('demographic.delete_demographic', demographic_id=demographic.demographic_id) }}"
                        class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>

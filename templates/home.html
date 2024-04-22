@@ -2,71 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Menu</title>
+    <title>City Health Explorer</title>
     <style>
         body {
-            font-family: Arial, sans-serif; /* Sets the font for a more modern look */
-            background-color: #f4f4f4; /* Light grey background */
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
-            color: #333; /* Dark grey text */
+            color: #333;
         }
 
         h1 {
-            color: #0275d8; /* Bootstrap primary color */
+            color: #0275d8;
+            margin-bottom: 20px; /* Increased spacing below the title */
         }
 
         ul {
-            list-style-type: none; /* Removes bullet points from the list */
+            list-style-type: none;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Consistent gap using flexbox */
+            align-items: center; /* Center align the buttons */
         }
 
         li {
-            margin-bottom: 10px; /* Adds space between the links */
+            display: block; /* Ensuring block display for correct margin handling */
         }
 
         a {
-            text-decoration: none; /* Removes underline from links */
-            color: white; /* White text for readability */
-            background-color: #0275d8; /* Bootstrap primary blue */
-            padding: 10px 20px; /* Padding inside the links */
-            border-radius: 5px; /* Rounded corners for the buttons */
-            transition: background-color 0.3s; /* Smooth transition for hover effect */
+            text-decoration: none;
+            color: white;
+            background-color: #0275d8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            display: inline-block;
+            width: 100%; /* Adjusted button width */
+            max-width: 500px; /* Maximum width for large screens */
         }
 
         a:hover, a:focus {
-            background-color: #025aa5; /* Darker blue on hover/focus */
-            color: white;
-            text-decoration: none;
+            background-color: #025aa5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow on hover */
+            transform: scale(1.05); /* Slightly enlarges the button on hover */
         }
     </style>
 </head>
 <body>
-<h1>Dashboard Menu</h1>
+<h1>City Health Explorer</h1>
 <ul>
-    <li><a href="{{ url_for('show_metrics') }}" onclick="return confirm('Proceed to Metrics Dashboard?');">Metrics
-        Dashboard</a></li>
-    <li><a href="{{ url_for('show_demographics') }}"
-           onclick="return confirm('Proceed to Demographics Dashboard?');">Demographics Dashboard</a></li>
-    <li><a href="{{ url_for('show_geographiclocations') }}"
-           onclick="return confirm('Proceed to Geographic Locations Dashboard?');">Geographic Locations Dashboard</a>
-    </li>
-    <li><a href="{{ url_for('show_sources') }}" onclick="return confirm('Proceed to Sources Dashboard?');">Sources
-        Dashboard</a></li>
+    <li><a href="{{ url_for('metrics.show_metrics') }}">Metrics Dashboard</a></li>
+    <li><a href="{{ url_for('demographics.show_demographics') }}">Demographics Dashboard</a></li>
+    <li><a href="{{ url_for('geographiclocations.show_geographiclocations') }}">Geographic Locations Dashboard</a></li>
+    <li><a href="{{ url_for('sources.show_sources') }}">Sources Dashboard</a></li>
 </ul>
-
-<script>
-    // Simple JavaScript for a confirmation dialog
-    document.addEventListener('DOMContentLoaded', function () {
-        var links = document.querySelectorAll('a');
-        links.forEach(function (link) {
-            link.addEventListener('click', function (event) {
-                if (!confirm('Do you want to continue to ' + link.textContent + '?')) {
-                    event.preventDefault(); // Prevents the link from being followed if the user cancels
-                }
-            });
-        });
-    });
-</script>
 </body>
 </html>

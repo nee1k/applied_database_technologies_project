@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Demographic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Add New Demographic Entry</h2>
+    <form method="POST" action="{{ url_for('demographics.create_demographic') }}">
+        <div class="form-group">
+            <label for="strata_race_label">Race Label:</label>
+            <input type="text" class="form-control" id="strata_race_label" name="strata_race_label" required>
+        </div>
+        <div class="form-group">
+            <label for="strata_sex_label">Sex Label:</label>
+            <input type="text" class="form-control" id="strata_sex_label" name="strata_sex_label" required>
+        </div>
+        <div class="form-group">
+            <label for="strata_race_sex_label">Race-Sex Label:</label>
+            <input type="text" class="form-control" id="strata_race_sex_label" name="strata_race_sex_label" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

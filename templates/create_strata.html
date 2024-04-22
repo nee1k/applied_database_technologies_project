@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Strata</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Add New Strata Entry</h2>
+    <form method="POST" action="{{ url_for('strata.create_strata') }}">
+        <div class="form-group">
+            <label for="geo_strata_region">Region:</label>
+            <input type="text" class="form-control" id="geo_strata_region" name="geo_strata_region" required>
+        </div>
+        <div class="form-group">
+            <label for="geo_strata_poverty">Poverty Level:</label>
+            <input type="text" class="form-control" id="geo_strata_poverty" name="geo_strata_poverty" required>
+        </div>
+        <div class="form-group">
+            <label for="geo_strata_Population">Population Size:</label>
+            <input type="text" class="form-control" id="geo_strata_Population" name="geo_strata_Population" required>
+        </div>
+        <div class="form-group">
+            <label for="geo_strata_PopDensity">Population Density:</label>
+            <input type="text" class="form-control" id="geo_strata_PopDensity" name="geo_strata_PopDensity" required>
+        </div>
+        <div class="form-group">
+            <label for="geo_strata_Segregation">Segregation Level:</label>
+            <input type="text" class="form-control" id="geo_strata_Segregation" name="geo_strata_Segregation" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>
