@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query Covid Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Query Covid Data</h1>
+    <form action="/coviddata/query_coviddata" method="post">
+        <div class="form-group">
+            <label for="demographic_id">Demographic ID:</label>
+            <input type="text" class="form-control" id="demographic_id" name="demographic_id" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Query</button>
+    </form>
+
+    <form action="/coviddata/query_coviddata" method="post">
+        <div class="form-group">
+            <label for="date_label">Year:</label>
+            <input type="text" class="form-control" id="date_label" name="date_label" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Query</button>
+    </form>
+
+</div>
+</body>
+</html>

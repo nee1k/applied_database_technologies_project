@@ -45,11 +45,11 @@ def create_metric():
         return render_template("create_metric.html")
 
 
-@metrics.route("/delete_metric/<int:metric_id>")
-def delete_metric(metric_id):
-    db = get_db()
-    cursor = db.cursor(dictionary=True)
-    cursor.execute("DELETE FROM Metrics WHERE metric_id = %s", (metric_id,))
-    db.commit()
-    cursor.close()
-    return redirect(url_for("metrics.show_metrics"))  # Prefix with 'metrics.'
+# @metrics.route("/delete_metric/<int:metric_id>")
+# def delete_metric(metric_id):
+#     db = get_db()
+#     cursor = db.cursor(dictionary=True)
+#     cursor.execute("DELETE FROM Metrics WHERE metric_id = %s", (metric_id,))
+#     db.commit()
+#     cursor.close()
+#     return redirect(url_for("metrics.show_metrics"))  # Prefix with 'metrics.'

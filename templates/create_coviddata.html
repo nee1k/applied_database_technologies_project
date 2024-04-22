@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Covid Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Add New Covid Data</h1>
+    <form action="{{ url_for('coviddata.create_coviddata') }}" method="post">
+        <div class="form-group">
+            <label for="metric_id">Metric ID:</label>
+            <input type="number" class="form-control" id="metric_id" name="metric_id" required>
+        </div>
+        <div class="form-group">
+            <label for="source_id">Source ID:</label>
+            <input type="number" class="form-control" id="source_id" name="source_id" required>
+        </div>
+        <div class="form-group">
+            <label for="geo_id">Geo ID:</label>
+            <input type="number" class="form-control" id="geo_id" name="geo_id" required>
+        </div>
+        <div class="form-group">
+            <label for="strata_id">Strata ID:</label>
+            <input type="number" class="form-control" id="strata_id" name="strata_id" required>
+        </div>
+        <div class="form-group">
+            <label for="demographic_id">Demographic ID:</label>
+            <input type="number" class="form-control" id="demographic_id" name="demographic_id" required>
+        </div>
+        <div class="form-group">
+            <label for="value">Value:</label>
+            <input type="text" class="form-control" id="value" name="value" required>
+        </div>
+        <div class="form-group">
+            <label for="date_label">Date:</label>
+            <input type="text" class="form-control" id="date_label" name="date_label" required>
+        </div>
+        <div class="form-group">
+            <label for="geo_label_proxy_or_real">Geo Label Proxy or Real:</label>
+            <input type="text" class="form-control" id="geo_label_proxy_or_real" name="geo_label_proxy_or_real"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="value_ci_flag">Value CI flag:</label>
+            <input type="text" class="form-control" id="value_ci_flag" name="value_ci_flag" required>
+        </div>
+        <div class="form-group">
+            <label for="value_95_ci_low">95% Confidence Interval lower-limit:</label>
+            <input type="text" class="form-control" id="value_95_ci_low" name="value_95_ci_low" required>
+        </div>
+        <div class="form-group">
+            <label for="value_95_ci_high">95% Confidence Interval upper-limit:</label>
+            <input type="text" class="form-control" id="value_95_ci_high" name="value_95_ci_high" required>
+        </div>
+        <div class="form-group">
+            <label for="value_90_ci_low">90% Confidence Interval lower-limit:</label>
+            <input type="text" class="form-control" id="value_90_ci_low" name="value_90_ci_low" required>
+        </div>
+        <div class="form-group">
+            <label for="value_90_ci_high">90% Confidence Interval upper-limit:</label>
+            <input type="text" class="form-control" id="value_90_ci_high" name="value_90_ci_high" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

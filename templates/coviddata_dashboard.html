@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Covid Data Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Covid Data Dashboard</h1>
+    <a href="{{ url_for('coviddata.create_coviddata') }}" class="btn btn-primary mb-3">Add New Covid Data</a>
+    <br>
+    <a href="{{ url_for('coviddata.query_coviddata') }}" class="btn btn-primary mb-3">Query Covid Data</a>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Metric ID</th>
+            <th>Source ID</th>
+            <th>Geo ID</th>
+            <th>Strata ID</th>
+            <th>Demographic ID</th>
+            <th>Value</th>
+            <th>Date</th>
+            <th>Geo Label</th>
+            <th>CI Flag</th>
+            <th>95% CI Low</th>
+            <th>95% CI High</th>
+            <th>90% CI Low</th>
+            <th>90% CI High</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for data in covid_data %}
+            <tr>
+                <td>{{ data.covid_data_id }}</td>
+                <td>{{ data.metric_id }}</td>
+                <td>{{ data.source_id }}</td>
+                <td>{{ data.geo_id }}</td>
+                <td>{{ data.strata_id }}</td>
+                <td>{{ data.demographic_id }}</td>
+                <td>{{ data.value }}</td>
+                <td>{{ data.date_label }}</td>
+                <td>{{ data.geo_label_proxy_or_real }}</td>
+                <td>{{ data.value_ci_flag }}</td>
+                <td>{{ data.value_95_ci_low }}</td>
+                <td>{{ data.value_95_ci_high }}</td>
+                <td>{{ data.value_90_ci_low }}</td>
+                <td>{{ data.value_90_ci_high }}</td>
+                <td>
+                    <a href="{{ url_for('coviddata.delete_coviddata', covid_data_id=data.covid_data_id) }}"
+                       class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

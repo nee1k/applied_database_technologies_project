@@ -1,0 +1,10 @@
+{% extends 'create_coviddata.html' %}
+
+{% block title %}Success{% endblock %}
+
+{% block content %}
+    <h1>Success!</h1>
+    <p>{{ message }}</p>
+    <a href="{{ url_for('coviddata.show_coviddata') }}" class="btn btn-success">View Covid Data</a>
+    <a href="{{ url_for('coviddata.create_coviddata') }}" class="btn btn-primary">Add More Data</a>
+{% endblock %}

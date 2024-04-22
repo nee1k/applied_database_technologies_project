@@ -7,37 +7,39 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container mt-3">
-        <h2>Geographic Locations Dashboard</h2>
-        <div>
-            <a href="{{ url_for('create_geographiclocation') }}" class="btn btn-primary">Add New Location</a>
-        </div>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>City-State</th>
-                    <th>FIPS Code</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for location in locations %}
-                <tr>
-                    <td>{{ location.geo_id }}</td>
-                    <td>{{ location.geo_label_city }}</td>
-                    <td>{{ location.geo_label_state }}</td>
-                    <td>{{ location.geo_label_citystate }}</td>
-                    <td>{{ location.geo_fips_code }}</td>
-                    <td>
-                        <a href="{{ url_for('delete_geographiclocation', geo_id=location.geo_id) }}" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+<div class="container mt-3">
+    <h2>Geographic Locations Dashboard</h2>
+    <div>
+        <a href="{{ url_for('geographiclocations.create_geographiclocation') }}" class="btn btn-primary">Add New
+            Location</a>
     </div>
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>City</th>
+            <th>State</th>
+            <th>City-State</th>
+            <th>FIPS Code</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for location in locations %}
+            <tr>
+                <td>{{ location.geo_id }}</td>
+                <td>{{ location.geo_label_city }}</td>
+                <td>{{ location.geo_label_state }}</td>
+                <td>{{ location.geo_label_citystate }}</td>
+                <td>{{ location.geo_fips_code }}</td>
+                <td>
+                    <a href="{{ url_for('geographiclocations.delete_geographiclocation', geo_id=location.geo_id) }}"
+                       class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
