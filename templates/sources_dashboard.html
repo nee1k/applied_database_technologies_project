@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sources Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-3">
+    <h2>Sources Dashboard</h2>
+    <div>
+        <a href="{{ url_for('create_source') }}" class="btn btn-primary">Add New Source</a>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>URL</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for source in sources %}
+            <tr>
+                <td>{{ source.source_id }}</td>
+                <td>{{ source.metric_source_desc_label_fn }}</td>
+                <td>{{ source.metric_source_desc_label_url_fn }}</td>
+                <td>
+                    <a href="{{ url_for('delete_source', source_id=source.source_id) }}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

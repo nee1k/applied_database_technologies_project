@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrics Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-3">
+        <h2>Metrics Dashboard</h2>
+        <div>
+            <a href="{{ url_for('create_metric') }}" class="btn btn-primary">Add New Metric</a>
+        </div>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Metric ID</th>
+                    <th>Item Label</th>
+                    <th>Category Label</th>
+                    <th>Subcategory Label</th>
+                    <th>Subtitle</th>
+                    <th>Y-axis Label</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for metric in metrics %}
+                <tr>
+                    <td>{{ metric.metric_id }}</td>
+                    <td>{{ metric.metric_item_label }}</td>
+                    <td>{{ metric.metric_cat_label }}</td>
+                    <td>{{ metric.metric_subcat_label }}</td>
+                    <td>{{ metric.metric_item_label_subtitle }}</td>
+                    <td>{{ metric.metric_cat_item_yaxis_label }}</td>
+                    <td>
+                        <a href="{{ url_for('delete_metric', metric_id=metric.metric_id) }}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

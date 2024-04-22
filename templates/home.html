@@ -11,16 +11,20 @@
             padding: 20px;
             color: #333; /* Dark grey text */
         }
+
         h1 {
             color: #0275d8; /* Bootstrap primary color */
         }
+
         ul {
             list-style-type: none; /* Removes bullet points from the list */
             padding: 0;
         }
+
         li {
             margin-bottom: 10px; /* Adds space between the links */
         }
+
         a {
             text-decoration: none; /* Removes underline from links */
             color: white; /* White text for readability */
@@ -29,6 +33,7 @@
             border-radius: 5px; /* Rounded corners for the buttons */
             transition: background-color 0.3s; /* Smooth transition for hover effect */
         }
+
         a:hover, a:focus {
             background-color: #025aa5; /* Darker blue on hover/focus */
             color: white;
@@ -37,26 +42,31 @@
     </style>
 </head>
 <body>
-    <h1>Dashboard Menu</h1>
-    <ul>
-        <li><a href="{{ url_for('main.show_metrics') }}" onclick="return confirm('Proceed to Metrics Dashboard?');">Metrics Dashboard</a></li>
-        <li><a href="{{ url_for('main.show_demographics') }}" onclick="return confirm('Proceed to Demographics Dashboard?');">Demographics Dashboard</a></li>
-        <li><a href="{{ url_for('main.show_geographiclocations') }}" onclick="return confirm('Proceed to Geographic Locations Dashboard?');">Geographic Locations Dashboard</a></li>
-        <li><a href="{{ url_for('main.show_sources') }}" onclick="return confirm('Proceed to Sources Dashboard?');">Sources Dashboard</a></li>
-    </ul>
+<h1>Dashboard Menu</h1>
+<ul>
+    <li><a href="{{ url_for('show_metrics') }}" onclick="return confirm('Proceed to Metrics Dashboard?');">Metrics
+        Dashboard</a></li>
+    <li><a href="{{ url_for('show_demographics') }}"
+           onclick="return confirm('Proceed to Demographics Dashboard?');">Demographics Dashboard</a></li>
+    <li><a href="{{ url_for('show_geographiclocations') }}"
+           onclick="return confirm('Proceed to Geographic Locations Dashboard?');">Geographic Locations Dashboard</a>
+    </li>
+    <li><a href="{{ url_for('show_sources') }}" onclick="return confirm('Proceed to Sources Dashboard?');">Sources
+        Dashboard</a></li>
+</ul>
 
-    <script>
-        // Simple JavaScript for a confirmation dialog
-        document.addEventListener('DOMContentLoaded', function() {
-            var links = document.querySelectorAll('a');
-            links.forEach(function(link) {
-                link.addEventListener('click', function(event) {
-                    if (!confirm('Do you want to continue to ' + link.textContent + '?')) {
-                        event.preventDefault(); // Prevents the link from being followed if the user cancels
-                    }
-                });
+<script>
+    // Simple JavaScript for a confirmation dialog
+    document.addEventListener('DOMContentLoaded', function () {
+        var links = document.querySelectorAll('a');
+        links.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                if (!confirm('Do you want to continue to ' + link.textContent + '?')) {
+                    event.preventDefault(); // Prevents the link from being followed if the user cancels
+                }
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>

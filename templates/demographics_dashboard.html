@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demographics Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-3">
+    <h2>Demographics Dashboard</h2>
+    <div>
+        <a href="{{ url_for('create_demographic') }}" class="btn btn-primary">Add New Demographic</a>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Race Label</th>
+            <th>Sex Label</th>
+            <th>Race-Sex Label</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for demographic in demographics %}
+            <tr>
+                <td>{{ demographic.demographic_id }}</td>
+                <td>{{ demographic.strata_race_label }}</td>
+                <td>{{ demographic.strata_sex_label }}</td>
+                <td>{{ demographic.strata_race_sex_label }}</td>
+                <td>
+                    <a href="{{ url_for('delete_demographic', demographic_id=demographic.demographic_id) }}"
+                       class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
