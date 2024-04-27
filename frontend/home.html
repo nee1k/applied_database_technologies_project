@@ -12,9 +12,17 @@
             color: #333;
         }
 
-        h1 {
+        h1, h2 {
             color: #0275d8;
+        }
+
+        h1 {
             margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 10px;
         }
 
         ul {
@@ -28,6 +36,8 @@
 
         li {
             display: block;
+            width: 100%; /* Ensuring li takes full width for consistent a tag width */
+            max-width: 500px; /* Maximum width for each list item */
         }
 
         a {
@@ -37,15 +47,25 @@
             padding: 10px 20px;
             border-radius: 5px;
             transition: all 0.3s ease-in-out;
-            display: inline-block;
-            width: 100%;
-            max-width: 500px;
+            display: block; /* Use block to fill the li element */
+            width: 100%; /* Full width to match li */
+            text-align: center; /* Center text if button width exceeds text length */
         }
 
         a:hover, a:focus {
             background-color: #025aa5;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transform: scale(1.05);
+        }
+
+        .info-section {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .info-section p, .info-section ul {
+            margin-left: 20px;
         }
     </style>
 </head>
@@ -61,5 +81,17 @@
            aria-label="Geographic Locations Dashboard">Geographic Locations Dashboard</a></li>
     <li><a href="{{ url_for('sources.show_sources') }}" aria-label="Sources Dashboard">Sources Dashboard</a></li>
 </ul>
+
+<div class="info-section">
+    <h2>About the Big Cities Health Coalition</h2>
+    <p>Urban health has great potential when using the wealth of data in the Big Cities Health Inventory
+        (BCHI). The entire potential of BCHI data can help 35 important U.S. towns because of the
+        CityHealth Explorer platform. The capacity of CityHealth Explorer to quickly standardize and
+        compare measurements across cities is one of its core strengths. Apart from guaranteeing
+        consistency, this standardization facilitates comprehensive analysis and benchmarking
+        endeavors. With over 150,000 data points encompassing over 120 health and demographic
+        categories, CityHealth Explorer offers a thorough picture of urban health dynamics.</p>
+</div>
+
 </body>
 </html>

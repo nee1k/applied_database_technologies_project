@@ -9,7 +9,7 @@ from sources import sources
 from strata import strata
 
 app = Flask(__name__)
-app.secret_key = 'your_very_secret_key'
+app.secret_key = 'adt'
 
 app.register_blueprint(metrics, url_prefix='/metrics')
 app.register_blueprint(sources, url_prefix='/sources')
